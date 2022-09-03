@@ -23,4 +23,4 @@ def home(request):
     return render(request, 'store/home.html', context)
 
 def about(request):
-    return HttpResponse(request, 'store/about.html')
+    return render(request, 'store/about.html')
