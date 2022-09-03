@@ -8,15 +8,6 @@
             font-size: 10px;
         }
     }
-    .collapse {
-        // TODO: Wrong way
-        @media (max-width:767px) {
-            .border-start
-            {
-              border:0px solid !important
-              }
-            }
-    }
     &-brand {
         img {
             vertical-align: -15px;
@@ -38,5 +29,11 @@
         &-instagram:hover {
             color: #E1306C !important;
         }
+    }
+}
+
+#profile {
+    img {
+        margin-top: -2px;
     }
 }

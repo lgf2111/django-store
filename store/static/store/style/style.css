@@ -7,11 +7,6 @@
   margin-left: -7.5px;
   font-size: 10px;
 }
-@media (max-width: 767px) {
-  .navbar .collapse .border-start {
-    border: 0px solid !important;
-  }
-}
 .navbar-brand img {
   vertical-align: -15px;
 }
@@ -29,4 +24,8 @@
 }
 .navbar .bi-instagram:hover {
   color: #E1306C !important;
+}
+
+#profile img {
+  margin-top: -2px;
 }/*# sourceMappingURL=style.css.map */
