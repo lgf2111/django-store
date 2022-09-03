@@ -1,0 +1,42 @@
+.navbar {
+    &-toggler {
+        height: 21px;
+        width: 21px;
+        &-icon {
+            margin-top: -14px;
+            margin-left: -7.5px;
+            font-size: 10px;
+        }
+    }
+    .collapse {
+        // TODO: Wrong way
+        @media (max-width:767px) {
+            .border-start
+            {
+              border:0px solid !important
+              }
+            }
+    }
+    &-brand {
+        img {
+            vertical-align: -15px;
+        }
+        span {
+            font-size: 27px;
+        }
+    }
+    form {
+        width: calc(100vw - 22em);
+    }
+    .bi {
+        &-cart {
+            font-size: 27px;
+        }
+        &-facebook:hover {
+            color: #4267B2 !important;
+        }
+        &-instagram:hover {
+            color: #E1306C !important;
+        }
+    }
+}

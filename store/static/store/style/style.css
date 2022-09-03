@@ -1,0 +1,32 @@
+.navbar-toggler {
+  height: 21px;
+  width: 21px;
+}
+.navbar-toggler-icon {
+  margin-top: -14px;
+  margin-left: -7.5px;
+  font-size: 10px;
+}
+@media (max-width: 767px) {
+  .navbar .collapse .border-start {
+    border: 0px solid !important;
+  }
+}
+.navbar-brand img {
+  vertical-align: -15px;
+}
+.navbar-brand span {
+  font-size: 27px;
+}
+.navbar form {
+  width: calc(100vw - 22em);
+}
+.navbar .bi-cart {
+  font-size: 27px;
+}
+.navbar .bi-facebook:hover {
+  color: #4267B2 !important;
+}
+.navbar .bi-instagram:hover {
+  color: #E1306C !important;
+}/*# sourceMappingURL=style.css.map */
