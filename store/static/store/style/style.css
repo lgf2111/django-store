@@ -35,4 +35,8 @@
   top: 18px;
   left: calc(100vw - 50px);
   padding: 3px 9px;
+}
+
+.carousel-item img {
+  height: 20em;
 }/*# sourceMappingURL=style.css.map */
