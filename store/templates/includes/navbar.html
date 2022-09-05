@@ -1,96 +1,195 @@
 {% load static %}
-<nav class="navbar navbar-expand-lg bg-light">
-  <div class="container-fluid small">
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item mt-2 mt-lg-0">
-          <a href="" class="nav-link py-0">Sell on Django Store</a>
-        </li>
-        <div class="border-top d-lg-none"></div>
-        <div class="border-start d-none d-lg-block"></div>
-        <li class="nav-item">
-          <a href="" class="nav-link py-0">Download</a>
-        </li>
-        <div class="border-top d-lg-none"></div>
-        <div class="border-start d-none d-lg-block"></div>
-        <li class="nav-item d-flex">
-          <span class="nav-link py-0">Follow us on</span>
-          <a href="" class="nav-link px-0 py-0 mx-1 mx-lg-0"><i class="bi bi-facebook"></i></a>
-          <a href="" class="nav-link py-0"><i class="bi bi-instagram"></i></a>
-        </li>
-      </ul>
-    </div>
-    <div class="mb-lg-0" style="margin-bottom:-10px;">
-      <!-- TODO: fix right navbar movinig when small -->
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-flex flex-row">
-        <li class="nav-item">
-          <a href="" class="nav-link py-0">
-            <i class="bi bi-bell"></i>
-            <span>Notifications</span>
-          </a>
-        </li>
-        <div class="border-start mx-1 mx-lg-0"></div>
-        <li class="nav-item">
-          <a href="" class="nav-link py-0">
-            <i class="bi bi-question-circle"></i>
-            <span>Help</span>
-          </a>
-        </li>
-        <div class="border-start mx-1 mx-lg-0"></div>
-        <li class="nav-item dropdown d-flex">
-          <!-- TODO: fix dropdown -->
-          <a class="nav-link dropdown-toggle py-0" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <i class="bi bi-globe"></i>
-            <span>SGD</span>
-          </a>
-          <ul class="dropdown-menu mt-2">
-            <li><a class="dropdown-item" href="#">USD</a></li>
-            <li><a class="dropdown-item active" href="#">SGD</a></li>
-            <li><a class="dropdown-item" href="#">RMB</a></li>
-          </ul>
-        </li>
-        <div class="border-start mx-1 mx-lg-0"></div>
-        <li class="nav-item dropdown d-flex" id="profile">
-          <a class="nav-link dropdown-toggle py-0" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <img src="{% static 'store/profile.png' %}" alt="Profile Picture" class="border rounded-circle" height="19">
-            <span>lgf2111</span>
-          </a>
-          <ul class="dropdown-menu dropdown-menu-end mt-2">
-            <li><a class="dropdown-item" href="#">Account</a></li>
-            <li><a class="dropdown-item" href="#">Purchases</a></li>
-            <li><a class="dropdown-item" href="#">Logout</a></li>
-          </ul>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
-<nav class="navbar navbar-expand-lg bg-success">
-  <div class="container-fluid d-flex">
-    <a class="navbar-brand ps-2" href="#">
-      <img src="{% static 'store/logo.png' %}" alt="" height="50">
-      <span class="ms-1 text-light">Django Store</span>
-    </a>
-    <form class="d-flex bg-white p-1 rounded" role="search">
-      <input class="form-control me-2 border-0" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-success" type="submit"><i class="bi bi-search"></i></button>
-    </form>
-    <a href="" class="mx-4 text-light">
-      <i class="bi bi-cart"></i>
-      <div id="cart-badge" class="badge bg-danger rounded-pill bg-danger text-white">
-        <span>5</span>
+<div class="fixed-top">
+  <nav class="navbar navbar-expand-lg bg-light">
+    <div class="container-fluid small">
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item mt-2 mt-lg-0">
+            <a href="" class="nav-link py-0">Sell on Django Store</a>
+          </li>
+          <div class="border-top d-lg-none"></div>
+          <div class="border-start d-none d-lg-block"></div>
+          <li class="nav-item">
+            <a href="" class="nav-link py-0">Download</a>
+          </li>
+          <div class="border-top d-lg-none"></div>
+          <div class="border-start d-none d-lg-block"></div>
+          <li class="nav-item d-flex">
+            <span class="nav-link py-0">Follow us on</span>
+            <a href="" class="nav-link px-0 py-0 mx-1 mx-lg-0"><i class="bi bi-facebook"></i></a>
+            <a href="" class="nav-link py-0"><i class="bi bi-instagram"></i></a>
+          </li>
+        </ul>
       </div>
-    </a>
-  </div>
-</nav>
+      <div class="mb-lg-0" style="margin-bottom:-10px;">
+        <!-- TODO: fix right navbar movinig when small -->
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-flex flex-row">
+          <li class="nav-item">
+            <a href="" class="nav-link py-0">
+              <i class="bi bi-bell"></i>
+              <span>Notifications</span>
+            </a>
+          </li>
+          <div class="border-start mx-1 mx-lg-0"></div>
+          <li class="nav-item">
+            <a href="" class="nav-link py-0">
+              <i class="bi bi-question-circle"></i>
+              <span>Help</span>
+            </a>
+          </li>
+          <div class="border-start mx-1 mx-lg-0"></div>
+          <li class="nav-item dropdown d-flex">
+            <!-- TODO: fix dropdown -->
+            <a class="nav-link dropdown-toggle py-0" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="bi bi-globe"></i>
+              <span>SGD</span>
+            </a>
+            <ul class="dropdown-menu mt-2">
+              <li><a class="dropdown-item" href="#">USD</a></li>
+              <li><a class="dropdown-item active" href="#">SGD</a></li>
+              <li><a class="dropdown-item" href="#">RMB</a></li>
+            </ul>
+          </li>
+          <div class="border-start mx-1 mx-lg-0"></div>
+          <li class="nav-item dropdown d-flex" id="profile">
+            <a class="nav-link dropdown-toggle py-0" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <img src="{% static 'store/profile.png' %}" alt="Profile Picture" class="border rounded-circle" height="19">
+              <span>lgf2111</span>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end mt-2">
+              <li><a class="dropdown-item" href="#">Account</a></li>
+              <li><a class="dropdown-item" href="#">Purchases</a></li>
+              <li><a class="dropdown-item" href="#">Logout</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <nav class="navbar navbar-expand-lg bg-success">
+    <div class="container-fluid d-flex">
+      <a class="navbar-brand ps-2" href="#">
+        <img src="{% static 'store/logo.png' %}" alt="" height="50">
+        <span class="ms-1 text-light">Django Store</span>
+      </a>
+      <form class="d-flex bg-white p-1 rounded" role="search">
+        <input class="form-control me-2 border-0" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-success" type="submit"><i class="bi bi-search"></i></button>
+      </form>
+      <a href="" class="mx-4 text-light">
+        <i class="bi bi-cart"></i>
+        <div id="cart-badge" class="badge bg-danger rounded-pill bg-danger text-white">
+          <span>5</span>
+        </div>
+      </a>
+    </div>
+  </nav>
+</div>
+<div class="invisible">
+  <nav class="navbar navbar-expand-lg bg-light">
+    <div class="container-fluid small">
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item mt-2 mt-lg-0">
+            <a href="" class="nav-link py-0">Sell on Django Store</a>
+          </li>
+          <div class="border-top d-lg-none"></div>
+          <div class="border-start d-none d-lg-block"></div>
+          <li class="nav-item">
+            <a href="" class="nav-link py-0">Download</a>
+          </li>
+          <div class="border-top d-lg-none"></div>
+          <div class="border-start d-none d-lg-block"></div>
+          <li class="nav-item d-flex">
+            <span class="nav-link py-0">Follow us on</span>
+            <a href="" class="nav-link px-0 py-0 mx-1 mx-lg-0"><i class="bi bi-facebook"></i></a>
+            <a href="" class="nav-link py-0"><i class="bi bi-instagram"></i></a>
+          </li>
+        </ul>
+      </div>
+      <div class="mb-lg-0" style="margin-bottom:-10px;">
+        <!-- TODO: fix right navbar movinig when small -->
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-flex flex-row">
+          <li class="nav-item">
+            <a href="" class="nav-link py-0">
+              <i class="bi bi-bell"></i>
+              <span>Notifications</span>
+            </a>
+          </li>
+          <div class="border-start mx-1 mx-lg-0"></div>
+          <li class="nav-item">
+            <a href="" class="nav-link py-0">
+              <i class="bi bi-question-circle"></i>
+              <span>Help</span>
+            </a>
+          </li>
+          <div class="border-start mx-1 mx-lg-0"></div>
+          <li class="nav-item dropdown d-flex">
+            <!-- TODO: fix dropdown -->
+            <a class="nav-link dropdown-toggle py-0" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="bi bi-globe"></i>
+              <span>SGD</span>
+            </a>
+            <ul class="dropdown-menu mt-2">
+              <li><a class="dropdown-item" href="#">USD</a></li>
+              <li><a class="dropdown-item active" href="#">SGD</a></li>
+              <li><a class="dropdown-item" href="#">RMB</a></li>
+            </ul>
+          </li>
+          <div class="border-start mx-1 mx-lg-0"></div>
+          <li class="nav-item dropdown d-flex" id="profile">
+            <a class="nav-link dropdown-toggle py-0" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <img src="{% static 'store/profile.png' %}" alt="Profile Picture" class="border rounded-circle" height="19">
+              <span>lgf2111</span>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end mt-2">
+              <li><a class="dropdown-item" href="#">Account</a></li>
+              <li><a class="dropdown-item" href="#">Purchases</a></li>
+              <li><a class="dropdown-item" href="#">Logout</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <nav class="navbar navbar-expand-lg bg-success">
+    <div class="container-fluid d-flex">
+      <a class="navbar-brand ps-2" href="#">
+        <img src="{% static 'store/logo.png' %}" alt="" height="50">
+        <span class="ms-1 text-light">Django Store</span>
+      </a>
+      <form class="d-flex bg-white p-1 rounded" role="search">
+        <input class="form-control me-2 border-0" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-success" type="submit"><i class="bi bi-search"></i></button>
+      </form>
+      <a href="" class="mx-4 text-light">
+        <i class="bi bi-cart"></i>
+        <div id="cart-badge" class="badge bg-danger rounded-pill bg-danger text-white">
+          <span>5</span>
+        </div>
+      </a>
+    </div>
+  </nav>
+</div>
