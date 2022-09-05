@@ -1,0 +1,18 @@
+{% if messages %}
+<div aria-live="polite" aria-atomic="true" class="position-fixed w-100 h-100 top-0" style="margin-top: 7.5em;">
+    <div class="toast-container top-0 end-0 p-3">
+        {% for message in messages %}
+        <div class="toast fade show" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <div class="bg-{{ message.tags }} p-1 rounded-circle me-1"></div>
+                <strong class="me-auto text-capitalize">{{ message.tags }}</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body">
+                {{ message }}
+            </div>
+        </div>    
+        {% endfor %}
+    </div>
+ </div>
+{% endif %}
