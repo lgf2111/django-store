@@ -14,6 +14,7 @@
     <link rel="icon" href="{% static 'store/logo.png' %}">
     <title>Django Store{% if title %} - {{ title }}{% endif %}</title>
 </head>
+
 <body class="bg-light">
     {% include 'includes/navbar.html' %}
     <div class="container my-5">
@@ -24,11 +25,34 @@
                 </div>
             {% endfor %}
         {% else %}
-            
         {% endif %}
         {% block content %}
         {% endblock content %}
     </div>
+    <div aria-live="polite" aria-atomic="true" class="position-relative">
+        <div class="toast-container top-0 end-0 p-3">
+            <div class="toast fade show" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="toast-header">
+                    <div class="bg-danger p-1 rounded-circle me-1"></div>
+                    <strong class="me-auto text-capitalize">alert</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+                <div class="toast-body">
+                    Hello, world! This is a toast message.
+                </div>
+            </div>    
+            <div class="toast fade show" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="toast-header">
+                    <div class="bg-danger p-1 rounded-circle me-1"></div>
+                    <strong class="me-auto text-capitalize">alert</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+                <div class="toast-body">
+                    Hello, world! This is a toast message.
+                </div>
+            </div>
+        </div>
+     </div>
     {% include 'includes/footer.html' %}
 </body>
 </html>
