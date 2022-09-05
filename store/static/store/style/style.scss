@@ -38,7 +38,7 @@
     }
 }
 
-.badge {
+#cart-badge {
     position: absolute;
     top: 18px;
     left: calc(100vw - 50px);
@@ -48,7 +48,13 @@
 .carousel {
     &-item {
         img {
-            height: 20em;
+            height: 60vh;
         }
+    }
+}
+
+.card {
+    &:hover {
+        box-shadow: 0px 0px 1px black;
     }
 }
