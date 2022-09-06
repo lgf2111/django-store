@@ -19,14 +19,14 @@ class ProductListView(ListView):
     ordering = ['-date_posted']
 
 
-class ShopProductListView(ListView):
+class SellerProductListView(ListView):
     model = Product
-    template_name = 'store/shop_products.html'
+    template_name = 'store/seller_products.html'
     context_object_name = 'products'
 
     def get_query_set(self):
-        shop = get_object_or_404(User, username=self.kwargs.get('username'))
-        return Product.objects.filter(shop=shop).order_by('-date_posted')
+        seller = get_object_or_404(User, username=self.kwargs.get('username'))
+        return Product.objects.filter(seller=seller).order_by('-date_posted')
 
 
 class ProductDetailView(DetailView):
@@ -38,7 +38,7 @@ class ProductCreateView(LoginRequiredMixin, CreateView):
     fields = ['title', 'price', 'description']
 
     def form_valid(self, form):
-        form.instance.shop = self.request.user
+        form.instance.seller = self.request.user
         return super().form_valid(form)
 
 
@@ -47,12 +47,12 @@ class ProductUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     fields = ['title', 'price', 'description']
 
     def form_valid(self, form):
-        form.instance.shop = self.request.user
+        form.instance.seller = self.request.user
         return super().form_valid(form)
     
     def test_func(self):
         product = self.get_object()
-        return self.request.user == product.shop
+        return self.request.user == product.seller
 
 
 class ProductDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
@@ -61,7 +61,7 @@ class ProductDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 
     def test_func(self):
         product = self.get_object()
-        return self.request.user == product.shop
+        return self.request.user == product.seller
 
 
 def about(request):

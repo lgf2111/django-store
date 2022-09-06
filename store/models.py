@@ -8,7 +8,7 @@ class Product(models.Model):
     price = models.FloatField()
     description = models.TextField()
     date_posted = models.DateTimeField(default=timezone.now)
-    shop = models.ForeignKey(User, on_delete=models.CASCADE)
+    seller = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def get_absolute_url(self):
         return reverse('product-detail', kwargs={'pk': self.pk})
