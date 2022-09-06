@@ -62,17 +62,31 @@
             </ul>
           </li>
           <div class="border-start mx-1 mx-lg-0"></div>
+          {% if user.is_authenticated %}
           <li class="nav-item dropdown d-flex" id="profile">
             <a class="nav-link dropdown-toggle py-0" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              <img src="{% static 'store/profile.png' %}" alt="Profile Picture" class="border rounded-circle" height="19">
+              <img src="{{ user.profile.image.url }}" alt="Profile Picture" class="border rounded-circle" height="19">
               <span>lgf2111</span>
             </a>
             <ul class="dropdown-menu dropdown-menu-end mt-2">
-              <li><a class="dropdown-item" href="#">Account</a></li>
+              <li><a class="dropdown-item" href="{% url 'profile' %}">Account</a></li>
               <li><a class="dropdown-item" href="#">Purchases</a></li>
-              <li><a class="dropdown-item" href="#">Logout</a></li>
+              <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>
             </ul>
           </li>
+          {% else %}
+          <li class="nav-item">
+            <a href="{% url 'register' %}" class="nav-link py-0" style="font-weight: 500;">
+              <span>Sign Up</span>
+            </a>
+          </li>
+          <div class="border-start mx-1 mx-lg-0"></div>
+          <li class="nav-item">
+            <a href="{% url 'login' %}" class="nav-link py-0" style="font-weight: 500;">
+              <span>Login</span>
+            </a>
+          </li>
+          {% endif %}
         </ul>
       </div>
     </div>
@@ -159,17 +173,31 @@
             </ul>
           </li>
           <div class="border-start mx-1 mx-lg-0"></div>
+          {% if user.is_authenticated %}
           <li class="nav-item dropdown d-flex" id="profile">
             <a class="nav-link dropdown-toggle py-0" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              <img src="{% static 'store/profile.png' %}" alt="Profile Picture" class="border rounded-circle" height="19">
+              <img src="{{ user.profile.image.url }}" alt="Profile Picture" class="border rounded-circle" height="19">
               <span>lgf2111</span>
             </a>
             <ul class="dropdown-menu dropdown-menu-end mt-2">
-              <li><a class="dropdown-item" href="#">Account</a></li>
+              <li><a class="dropdown-item" href="{% url 'profile' %}">Account</a></li>
               <li><a class="dropdown-item" href="#">Purchases</a></li>
-              <li><a class="dropdown-item" href="#">Logout</a></li>
+              <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>
             </ul>
           </li>
+          {% else %}
+          <li class="nav-item">
+            <a href="{% url 'register' %}" class="nav-link py-0" style="font-weight: 500;">
+              <span>Sign Up</span>
+            </a>
+          </li>
+          <div class="border-start mx-1 mx-lg-0"></div>
+          <li class="nav-item">
+            <a href="{% url 'login' %}" class="nav-link py-0" style="font-weight: 500;">
+              <span>Login</span>
+            </a>
+          </li>
+          {% endif %}
         </ul>
       </div>
     </div>
