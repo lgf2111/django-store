@@ -1,0 +1,251 @@
+{% extends 'includes/base.html' %}
+{% load static %}
+{% block content %}
+<script defer src="{% static 'store/script/product_detail.js' %}"></script>
+<div class="bg-white p-4">
+    <div class="d-flex">
+        <div class="col-4">
+            <img src="{{ object.shop.profile.image.url }}" alt="Profile Picture" class="w-100">
+            <div class="d-flex mt-2">
+                <div class="col">
+                    <img src="{{ object.shop.profile.image.url }}" alt="Profile Picture" class="w-100">
+                </div>
+                <div class="col">
+                    <img src="{{ object.shop.profile.image.url }}" alt="Profile Picture" class="w-100">
+                </div>
+                <div class="col">
+                    <img src="{{ object.shop.profile.image.url }}" alt="Profile Picture" class="w-100">
+                </div>
+                <div class="col">
+                    <img src="{{ object.shop.profile.image.url }}" alt="Profile Picture" class="w-100">
+                </div>
+                <div class="col">
+                    <img src="{{ object.shop.profile.image.url }}" alt="Profile Picture" class="w-100">
+                </div>
+            </div>
+            <div class="d-flex mt-3">
+                <div class="col-6 d-flex justify-content-center">
+                    <i class="bi bi-share text-primary me-2"></i>
+                    <span>Share</span>
+                </div>
+                <div class="border-start"></div>
+                <div class="col-6 d-flex justify-content-center">
+                    <i class="bi bi-heart text-danger me-2"></i>
+                    <span>Favourite</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-8 p-4 d-flex flex-column">
+            <h4>{{ object.title }}</h4>
+            <div class="small d-flex ">
+                <div class="text-success">
+                    <span>5.0</span>
+                    {% for _ in '12345'|make_list %}
+                    <i class="bi bi-star-fill"></i>
+                    {% endfor %}
+                </div>
+                <div class="border-start mx-1"></div>
+                <div class="">
+                    <span>12 Ratings</span>
+                </div>
+                <div class="border-start mx-1"></div>
+                <div class="">
+                    <span>377 Sold</span>
+                </div>
+            </div>
+            <h1>${{ object.price }}</h1>
+            <div class="d-flex">
+                <div class="col-2">
+                    <small>Shipping</small>
+                </div>
+                <div class="d-flex flex-column col-10">
+                    <div class="d-flex">
+                        <i class="bi bi-truck text-success me-2"></i>
+                        <div class="col-8 d-flex justify-content-between">
+                            <div class="col-4">
+                                <small class="">Free Shipping</small>
+                            </div>
+                            <div class="col-4">
+                                <div class=""></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex">
+                        <i class="bi bi-airplane me-2"></i>
+                        <div class="d-flex flex-column col-8">
+                            <div class="col-12 d-flex justify-content-between">
+                                <div class="col-6">
+                                    <small class="text-muted">Shipping From</small>
+                                </div>
+                                <div class="col-6">
+                                    <small>Singapore</small>
+                                </div>
+                            </div>
+                            <div class="col-12 d-flex justify-content-between">
+                                <div class="col-6">
+                                    <small class="text-muted">Shipping Fee</small>
+                                </div>
+                                <div class="col-6">
+                                    <small>$0.00 - $1.00</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex mt-2">
+                <div class="col-2">
+                    <small>Quantity</small>
+                </div>
+                <!-- TODO: stick the input as a whole tgt -->
+                <div class="input-group w-25 d-flex mt-2">
+                    <button class="input-group-text rounded-0" id="minus" onclick="minusQuantity()"><i class="bi bi-dash"></i></button>
+                    <input 
+                        type="text" class="form-control text-center w-25" id="quantity" value=0 
+                        aria-label="quantity" aria-describedby="plus minus" 
+                        oninput="checkQuantity()" onblur="checkQuantityNull()">
+                    <button class="input-group-text rounded-0" id="plus" onclick="plusQuantity()"><i class="bi bi-plus"></i></button>
+                </div>
+            </div>
+            <div class="d-flex mt-4">
+                <div class="btn btn-outline-success rounded-0">
+                    <i class="bi bi-cart-plus mx-1"></i>
+                    <span>Add to Cart</span>
+                </div>
+                <div class="btn btn-success rounded-0 ms-3">
+                    <i class="bi bi-cart-check mx-1"></i>
+                    <span>Buy Now</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="bg-white mt-3 p-4 d-flex align-items-center">
+    <div class="col-1">
+        <img src="{{ object.shop.profile.image.url }}" alt="Profile Picture" class="w-100 rounded-circle border">
+    </div>
+    <div class="col-4 ps-3 d-flex flex-column border-end">
+        <span>{{ object.shop }}</span>
+        <small class="text-muted">Active 20 minutes ago</small>
+        <div class="d-block mt-1">
+            <a href="" class="btn btn-outline-success">
+                <i class="bi bi-chat-left-text"></i>
+                <span>Chat Now</span>
+            </a>
+            <a href="" class="btn btn-outline-secondary">
+                <i class="bi bi-shop"></i>
+                <span>View Shop</span>
+            </a>
+        </div>
+    </div>
+    <div class="col-7 ps-4 small">
+        <div class="d-flex my-2">
+            <div class="col-3">
+                <span>Ratings</span>
+                <span class="text-success">17.1k</span>
+            </div>
+            <div class="col-5">
+                <span>Response Rate</span>
+                <span class="text-success">72%</span>
+            </div>
+            <div class="col-4">
+                <span>Joined</span>
+                <span class="text-success">15 months ago</span>
+            </div>
+        </div>
+        <div class="d-flex my-1">
+            <div class="col-3">
+                <span>Products</span>
+                <span class="text-success">105</span>
+            </div>
+            <div class="col-5">
+                <span>Response Time</span>
+                <span class="text-success">within hours</span>
+            </div>
+            <div class="col-4">
+                <span>Follower</span>
+                <span class="text-success">5.7k</span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="bg-white mt-5 py-2 px-2">
+    <div class="container">
+        <div class="bg-light px-3 pt-3 pb-1 my-4">
+            <h6>Product Specifications</h6>
+        </div>
+        <div class="small mx-2">
+            <div class="d-flex">
+                <div class="col-2">
+                    <span class="text-muted">Category</span>
+                </div>
+                <div class="col">
+                    <span>Chargers</span>
+                </div>
+            </div>
+            <div class="d-flex">
+                <div class="col-2">
+                    <span class="text-muted">Brand</span>
+                </div>
+                <div class="col">
+                    <span>Mione</span>
+                </div>
+            </div>
+            <div class="d-flex">
+                <div class="col-2">
+                    <span class="text-muted">Warranty Type</span>
+                </div>
+                <div class="col">
+                    <span>Supplier Warranty</span>
+                </div>
+            </div>
+            <div class="d-flex">
+                <div class="col-2">
+                    <span class="text-muted">Wireless</span>
+                </div>
+                <div class="col">
+                    <span>Yes</span>
+                </div>
+            </div>
+            <div class="d-flex">
+                <div class="col-2">
+                    <span class="text-muted">Mobile Cable Type</span>
+                </div>
+                <div class="col">
+                    <span>Lightning, Type C</span>
+                </div>
+            </div>
+            <div class="d-flex">
+                <div class="col-2">
+                    <span class="text-muted">Safety Mark</span>
+                </div>
+                <div class="col">
+                    <span>CCC FCC</span>
+                </div>
+            </div>
+            <div class="d-flex">
+                <div class="col-2">
+                    <span class="text-muted">Stock</span>
+                </div>
+                <div class="col">
+                    <span>895209</span>
+                </div>
+            </div>
+            <div class="d-flex">
+                <div class="col-2">
+                    <span class="text-muted">Ships From</span>
+                </div>
+                <div class="col">
+                    <span>Mainland China</span>
+                </div>
+            </div>
+        </div>
+        <div class="bg-light px-3 pt-3 pb-1 my-4">
+            <h6>Product Description</h6>
+        </div>
+        <div class="small mx-2">
+            <p>{{ object.description }}</p>
+        </div>
+    </div>
+</div>
+{% endblock content %}
