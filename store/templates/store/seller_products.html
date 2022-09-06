@@ -1,8 +1,55 @@
 {% extends 'includes/base.html' %}
 {% load static %}
 {% block content %}
-{% include 'store/landing.html' %}
-{% include 'store/categories.html' %}
-<div class="py-3 bg-light"></div>
-{% include 'store/discover.html' %}
+<div class="bg-white mt-3 p-4 d-flex align-items-center">
+    <div class="col-1">
+        <img src="" alt="Profile Picture" class="w-100 rounded-circle border">
+    </div>
+    <div class="col-4 ps-3 d-flex flex-column border-end">
+        <span>{{ view.kwargs.username }}</span>
+        <small class="text-muted">Active 20 minutes ago</small>
+        <div class="d-block mt-1">
+            <a href="" class="btn btn-outline-success">
+                <i class="bi bi-chat-left-text"></i>
+                <span>Chat Now</span>
+            </a>
+            <a href="" class="btn btn-outline-secondary">
+                <i class="bi bi-shop"></i>
+                <span>View Seller</span>
+            </a>
+        </div>
+    </div>
+    <div class="col-7 ps-4 small">
+        <div class="d-flex my-2">
+            <div class="col-3">
+                <span>Ratings</span>
+                <span class="text-success">17.1k</span>
+            </div>
+            <div class="col-5">
+                <span>Response Rate</span>
+                <span class="text-success">72%</span>
+            </div>
+            <div class="col-4">
+                <span>Joined</span>
+                <span class="text-success">15 months ago</span>
+            </div>
+        </div>
+        <div class="d-flex my-1">
+            <div class="col-3">
+                <span>Products</span>
+                <span class="text-success">105</span>
+            </div>
+            <div class="col-5">
+                <span>Response Time</span>
+                <span class="text-success">within hours</span>
+            </div>
+            <div class="col-4">
+                <span>Follower</span>
+                <span class="text-success">5.7k</span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="py-2 bg-light"></div>
+{% include 'store/seller/home.html' %}
 {% endblock content %}

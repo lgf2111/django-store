@@ -66,7 +66,7 @@
           <li class="nav-item dropdown d-flex" id="profile">
             <a class="nav-link dropdown-toggle py-0" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               <img src="{{ user.profile.image.url }}" alt="Profile Picture" class="border rounded-circle" height="19">
-              <span>lgf2111</span>
+              <span>{{ user.username }}</span>
             </a>
             <ul class="dropdown-menu dropdown-menu-end mt-2">
               <li><a class="dropdown-item" href="{% url 'profile' %}">Account</a></li>
@@ -177,7 +177,7 @@
           <li class="nav-item dropdown d-flex" id="profile">
             <a class="nav-link dropdown-toggle py-0" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               <img src="{{ user.profile.image.url }}" alt="Profile Picture" class="border rounded-circle" height="19">
-              <span>lgf2111</span>
+              <span>{{ user.username }}</span>
             </a>
             <ul class="dropdown-menu dropdown-menu-end mt-2">
               <li><a class="dropdown-item" href="{% url 'profile' %}">Account</a></li>

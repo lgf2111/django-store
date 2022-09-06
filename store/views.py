@@ -24,7 +24,7 @@ class SellerProductListView(ListView):
     template_name = 'store/seller_products.html'
     context_object_name = 'products'
 
-    def get_query_set(self):
+    def get_queryset(self):
         seller = get_object_or_404(User, username=self.kwargs.get('username'))
         return Product.objects.filter(seller=seller).order_by('-date_posted')
 
