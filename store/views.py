@@ -6,8 +6,11 @@ from .models import Product
 
 
 def home(request):
+    products = Product.objects.all()
+    categories = set([_.category for _ in products])
     context = {
-        'products': Product.objects.all()
+        'products': products,
+        'categories': categories
     }
     return render(request, 'store/home.html', context)
 
@@ -16,7 +19,7 @@ class ProductListView(ListView):
     model = Product
     template_name = 'store/home.html'
     context_object_name = 'products'
-    ordering = ['-date_posted']
+    ordering = ['-date_created']
 
 
 class SellerProductListView(ListView):
@@ -26,7 +29,7 @@ class SellerProductListView(ListView):
 
     def get_queryset(self):
         seller = get_object_or_404(User, username=self.kwargs.get('username'))
-        return Product.objects.filter(seller=seller).order_by('-date_posted')
+        return Product.objects.filter(seller=seller).order_by('-date_created')
 
 
 class ProductDetailView(DetailView):
@@ -35,7 +38,7 @@ class ProductDetailView(DetailView):
 
 class ProductCreateView(LoginRequiredMixin, CreateView):
     model = Product
-    fields = ['title', 'price', 'description']
+    fields = ['name', 'brand', 'category', 'price', 'stock', 'description']
 
     def form_valid(self, form):
         form.instance.seller = self.request.user
@@ -44,7 +47,7 @@ class ProductCreateView(LoginRequiredMixin, CreateView):
 
 class ProductUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Product
-    fields = ['title', 'price', 'description']
+    fields = ['name', 'brand', 'category', 'price', 'stock', 'description']
 
     def form_valid(self, form):
         form.instance.seller = self.request.user

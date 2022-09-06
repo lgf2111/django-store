@@ -36,7 +36,7 @@
             </div>
         </div>
         <div class="col-8 p-4 d-flex flex-column">
-            <h4>{{ object.title }}</h4>
+            <h4>{{ object.name }}</h4>
             <div class="small d-flex ">
                 <div class="text-success">
                     <span>5.0</span>
@@ -93,18 +93,21 @@
                     </div>
                 </div>
             </div>
-            <div class="d-flex mt-2">
+            <div class="d-flex mt-2 align-items-center">
                 <div class="col-2">
                     <small>Quantity</small>
                 </div>
                 <!-- TODO: stick the input as a whole tgt -->
-                <div class="input-group w-25 d-flex mt-2">
-                    <button class="input-group-text rounded-0" id="minus" onclick="minusQuantity()"><i class="bi bi-dash"></i></button>
-                    <input 
-                        type="text" class="form-control text-center w-25" id="quantity" value=0 
-                        aria-label="quantity" aria-describedby="plus minus" 
-                        oninput="checkQuantity()" onblur="checkQuantityNull()">
-                    <button class="input-group-text rounded-0" id="plus" onclick="plusQuantity()"><i class="bi bi-plus"></i></button>
+                <div class="d-flex align-items-center">
+                    <div class="input-group d-flex mt-2">
+                        <button class="input-group-text rounded-0" id="minus" onclick="minusQuantity()"><i class="bi bi-dash"></i></button>
+                        <input 
+                            type="text" class="form-control text-center w-25" id="quantity" value=0 
+                            aria-label="quantity" aria-describedby="plus minus" 
+                            oninput="checkQuantity()" onblur="checkQuantityNull()">
+                        <button class="input-group-text rounded-0" id="plus" onclick="plusQuantity()"><i class="bi bi-plus"></i></button>
+                    </div>
+                    <span class="text-muted col-6 ms-3 mt-1">{{ object.stock }} available</span>
                 </div>
             </div>
             <div class="d-flex mt-4">
@@ -180,7 +183,7 @@
                     <span class="text-muted">Category</span>
                 </div>
                 <div class="col">
-                    <span>Chargers</span>
+                    <span>{{ object.category }}</span>
                 </div>
             </div>
             <div class="d-flex">
@@ -188,10 +191,10 @@
                     <span class="text-muted">Brand</span>
                 </div>
                 <div class="col">
-                    <span>Mione</span>
+                    <span>{{ object.brand }}</span>
                 </div>
             </div>
-            <div class="d-flex">
+            <!-- <div class="d-flex">
                 <div class="col-2">
                     <span class="text-muted">Warranty Type</span>
                 </div>
@@ -222,13 +225,13 @@
                 <div class="col">
                     <span>CCC FCC</span>
                 </div>
-            </div>
+            </div> -->
             <div class="d-flex">
                 <div class="col-2">
                     <span class="text-muted">Stock</span>
                 </div>
                 <div class="col">
-                    <span>895209</span>
+                    <span>{{ object.stock }}</span>
                 </div>
             </div>
             <div class="d-flex">
@@ -236,7 +239,7 @@
                     <span class="text-muted">Ships From</span>
                 </div>
                 <div class="col">
-                    <span>Mainland China</span>
+                    <span>Singapore</span>
                 </div>
             </div>
         </div>
