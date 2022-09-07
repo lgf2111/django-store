@@ -1,7 +1,10 @@
+{% extends 'includes/base.html' %}
 {% load static %}
+{% block content %}
+{% if search %}
 <div class="container-fluid mt-4 px-0">
     <div class="bg-white">
-        <h5 class="ms-3 mb-3 py-3">HOME</h5>
+        <h5 class="ms-3 mb-3 py-3">RESULT FOR "<span class="text-success">{{ search }}</span>"</h5>
     </div>
     <div class="d-flex flex-wrap mb-2">
         {% for product in products %}
@@ -26,3 +29,7 @@
         <a href="" class="btn btn-secondary my-3 px-4 py-2">Load More</a>
     </div>
 </div>
+{% else %}
+    <h1>Hey! You forget to search for a product...</h1>
+{% endif %}
+{% endblock content %}

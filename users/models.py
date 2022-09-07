@@ -6,6 +6,7 @@ from PIL import Image
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     image = models.ImageField(default='profile_pics/default.png', upload_to='profile_pics')
+    followers = models.ManyToManyField(User, blank=True, related_name='followers')
 
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)

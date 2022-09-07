@@ -25,6 +25,9 @@
 .navbar .bi-instagram:hover {
   color: #E1306C !important;
 }
+.navbar #popup {
+  z-index: 0;
+}
 
 #profile img {
   margin-top: -2px;

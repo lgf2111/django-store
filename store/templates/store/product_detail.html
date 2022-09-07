@@ -46,14 +46,14 @@
                 </div>
                 <div class="border-start mx-1"></div>
                 <div class="">
-                    <span>12 Ratings</span>
+                    <span>{{ rating_no }} Ratings</span>
                 </div>
                 <div class="border-start mx-1"></div>
                 <div class="">
-                    <span>377 Sold</span>
+                    <span>{{ object.sold }} Sold</span>
                 </div>
             </div>
-            <h1>${{ object.price }}</h1>
+            <h1>${{ object.price|stringformat:'.2f' }}</h1>
             <div class="d-flex">
                 <div class="col-2">
                     <small>Shipping</small>
@@ -135,7 +135,7 @@
                 <i class="bi bi-chat-left-text"></i>
                 <span>Chat Now</span>
             </a>
-            <a href="" class="btn btn-outline-secondary">
+            <a href="{% url 'seller-home' object.seller.username %}" class="btn btn-outline-secondary">
                 <i class="bi bi-shop"></i>
                 <span>View Seller</span>
             </a>
@@ -145,21 +145,21 @@
         <div class="d-flex my-2">
             <div class="col-3">
                 <span>Ratings</span>
-                <span class="text-success">17.1k</span>
+                <span class="text-success">{{ ratings_no }}</span>
             </div>
             <div class="col-5">
                 <span>Response Rate</span>
-                <span class="text-success">72%</span>
+                <span class="text-success">100%</span>
             </div>
             <div class="col-4">
                 <span>Joined</span>
-                <span class="text-success">15 months ago</span>
+                <span class="text-success">{{ object.seller.date_joined|timesince  }}</span>
             </div>
         </div>
         <div class="d-flex my-1">
             <div class="col-3">
                 <span>Products</span>
-                <span class="text-success">105</span>
+                <span class="text-success">{{ product_no }}</span>
             </div>
             <div class="col-5">
                 <span>Response Time</span>
@@ -167,7 +167,7 @@
             </div>
             <div class="col-4">
                 <span>Follower</span>
-                <span class="text-success">5.7k</span>
+                <span class="text-success">{{ follower_no }}</span>
             </div>
         </div>
     </div>
