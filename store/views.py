@@ -2,7 +2,9 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth.models import User
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView, View
-from .models import Product, Rating
+
+from store.forms import ProductImageForm
+from .models import Product, ProductImage, Rating
 
 
 class ProductListView(ListView):
@@ -51,6 +53,7 @@ class ProductDetailView(DetailView):
     def get_context_data(self, **kwargs):
         pk = self.kwargs.get('pk')
         product = Product.objects.get(pk=pk)
+        product_images = ProductImage.objects.filter(product=product)
         ratings = Rating.objects.filter(product=product)
         rating_no = len(ratings)
         followers = product.seller.profile.followers.all()
@@ -60,6 +63,7 @@ class ProductDetailView(DetailView):
         ratings_no = sum([sum([rating.rate for rating in rating_list]) for rating_list in [Rating.objects.filter(product=prod) for prod in products]])
         context = super(ProductDetailView, self).get_context_data(**kwargs)
         context.update({
+            'product_images': product_images,
             'ratings': ratings,
             'rating_no': rating_no,
             'ratings_no': ratings_no,
@@ -74,19 +78,43 @@ class ProductCreateView(LoginRequiredMixin, CreateView):
     model = Product
     fields = ['name', 'brand', 'category', 'price', 'stock', 'description']
 
+    def get_context_data(self, **kwargs):
+        image_form = ProductImageForm()
+        context =  super(ProductCreateView, self).get_context_data(**kwargs)
+        context.update({
+            "image_form": image_form
+        })
+        return context
+
     def form_valid(self, form):
         form.instance.seller = self.request.user
-        return super().form_valid(form)
+        super().form_valid(form)
+        files = self.request.FILES.getlist('image')
+        for file in files:
+            ProductImage.objects.create(product=form.instance, image=file)
+        return redirect('product-detail', pk=form.instance.pk)
 
 
 class ProductUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Product
     fields = ['name', 'brand', 'category', 'price', 'stock', 'description']
 
+    def get_context_data(self, **kwargs):
+        image_form = ProductImageForm()
+        context =  super(ProductUpdateView, self).get_context_data(**kwargs)
+        context.update({
+            "image_form": image_form
+        })
+        return context
+
     def form_valid(self, form):
         form.instance.seller = self.request.user
-        return super().form_valid(form)
-    
+        super().form_valid(form)
+        files = self.request.FILES.getlist('image')
+        for file in files:
+            ProductImage.objects.create(product=form.instance, image=file)
+        return redirect('product-detail', pk=form.instance.pk)
+
     def test_func(self):
         product = self.get_object()
         return self.request.user == product.seller

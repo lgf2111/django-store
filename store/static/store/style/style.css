@@ -53,4 +53,8 @@
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
+}
+
+.product-image:hover {
+  filter: brightness(0.8);
 }/*# sourceMappingURL=style.css.map */

@@ -68,3 +68,9 @@
         -webkit-box-orient: vertical;
     }
 }
+
+.product-image {
+    &:hover {
+        filter: brightness(.8);
+    }
+}

@@ -5,24 +5,42 @@
 <div class="bg-white p-4">
     <div class="d-flex">
         <div class="col-4">
-            <img src="{{ object.seller.profile.image.url }}" alt="Profile Picture" class="w-100">
-            <div class="d-flex mt-2">
-                <div class="col">
-                    <img src="{{ object.seller.profile.image.url }}" alt="Profile Picture" class="w-100">
-                </div>
-                <div class="col">
-                    <img src="{{ object.seller.profile.image.url }}" alt="Profile Picture" class="w-100">
-                </div>
-                <div class="col">
-                    <img src="{{ object.seller.profile.image.url }}" alt="Profile Picture" class="w-100">
-                </div>
-                <div class="col">
-                    <img src="{{ object.seller.profile.image.url }}" alt="Profile Picture" class="w-100">
-                </div>
-                <div class="col">
-                    <img src="{{ object.seller.profile.image.url }}" alt="Profile Picture" class="w-100">
-                </div>
+            <div id="playerbox">
+                <img id="playerimg" class="w-100" src="{{ product_images.0.image.url }}" height="300">
             </div>
+            <div class="d-flex mt-2 overflow-scroll">
+                {% for image in product_images %}
+                <div class="col-2 bg-white">
+                    <img src="{{ image.image.url }}" alt="Profile Picture" class="w-100 product-image">
+                </div>
+                {% endfor %}
+            </div>
+            <script>
+                // this "lazy" getter for playerImg will either return or create the img
+                function playerImg() {
+                    let playerImg = document.getElementById('playerimg');
+                    if (!playerImg) {
+                    playerImg = document.createElement('img');
+                    playerImg.id = 'playerimg';
+                    document.getElementById('playerbox').appendChild(playerImg);
+                    }
+                    return playerImg;
+                }
+                
+                // set the source attribute of the playerImg
+                function setPlayerImg(src) {
+                    playerImg().setAttribute('src', src);
+                }
+                
+                // get the rock, paper, scissors elements with their common class
+                const imgs = document.getElementsByClassName("product-image");
+                
+                // for each, add a click handler that calls our src setting function
+                for (let i = 0; i < imgs.length; i++) {
+                    const el = imgs[i];
+                    el.addEventListener('click', () => setPlayerImg(el.src), false);
+                }            
+            </script>
             <div class="d-flex mt-3">
                 <div class="col-6 d-flex justify-content-center">
                     <i class="bi bi-share text-primary me-2"></i>
