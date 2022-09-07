@@ -55,6 +55,9 @@
   -webkit-box-orient: vertical;
 }
 
+.product-image {
+  cursor: pointer;
+}
 .product-image:hover {
   filter: brightness(0.8);
 }/*# sourceMappingURL=style.css.map */

@@ -70,6 +70,7 @@
 }
 
 .product-image {
+    cursor: pointer;
     &:hover {
         filter: brightness(.8);
     }
