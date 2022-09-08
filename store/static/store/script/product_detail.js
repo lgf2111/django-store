@@ -34,3 +34,22 @@ for (let i = 0; i < imgs.length; i++) {
   const el = imgs[i];
   el.addEventListener("click", () => setPlayerImg(el.src), false);
 }
+
+function copy(that) {
+  var inp = document.createElement("input");
+  document.body.appendChild(inp);
+  inp.value = that;
+  inp.select();
+  document.execCommand("copy", false);
+  inp.remove();
+}
+
+const toastTrigger = document.getElementById("liveToastBtn");
+const toastLiveExample = document.getElementById("liveToast");
+if (toastTrigger) {
+  toastTrigger.addEventListener("click", () => {
+    const toast = new bootstrap.Toast(toastLiveExample);
+
+    toast.show();
+  });
+}

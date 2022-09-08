@@ -16,13 +16,33 @@
                 {% endfor %}
             </div>
             <div class="d-flex mt-3">
-                <div class="col-6 d-flex justify-content-center">
-                    <i class="bi bi-share text-primary me-2"></i>
+                <!-- <button type="button" class="col-6 d-flex btn btn-outline-primary justify-content-center" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <i class="bi bi-share me-2"></i>
                     <span>Share</span>
-                </div>
+                </button> -->
+                <button type="button" class="col-6 d-flex btn btn-outline-primary justify-content-center" id="liveToastBtn" onclick="copy(window.location.href)">
+                    <i class="bi bi-share me-2"></i>
+                    <span>Share</span>
+                </button>
+                <div class="toast-container position-fixed bottom-0 end-0 p-3">
+                  <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                    <div class="toast-header">
+                        <!-- <div class="bg-primary p-1 rounded-circle me-1"></div> -->
+                        <strong class="me-auto text-capitalize text-primary">
+                            <i class="bi bi-share me-2"></i>
+                            <span>Share</span>
+                        </strong>
+                        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                    </div>
+                    <div class="toast-body">
+                        Link has been copied to your clipboard.
+                    </div>
+                  </div>
+                </div>   
+           
                 <div class="border-start"></div>
-                <div class="col-6 d-flex justify-content-center">
-                    <i class="bi bi-heart text-danger me-2"></i>
+                <div class="col-6 d-flex btn btn-outline-danger justify-content-center">
+                    <i class="bi bi-heart me-2"></i>
                     <span>Favourite</span>
                 </div>
             </div>
