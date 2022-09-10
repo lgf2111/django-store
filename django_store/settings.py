@@ -35,8 +35,10 @@ INSTALLED_APPS = [
     'store.apps.StoreConfig',
     'users.apps.UsersConfig',
 
+    'django_cleanup.apps.CleanupConfig',
     'crispy_forms',
     'crispy_bootstrap5',
+
 
     'django.contrib.admin',
     'django.contrib.auth',
