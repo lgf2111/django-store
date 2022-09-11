@@ -41,3 +41,6 @@ class Rating(models.Model):
     product = models.OneToOneField(Product, on_delete=models.CASCADE)
     rate = models.IntegerField()
     comment = models.TextField()
+
+
+
