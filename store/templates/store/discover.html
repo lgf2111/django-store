@@ -8,7 +8,7 @@
         <div class="col-2 my-1">
             <a class="card mx-1 text-decoration-none h-100" href="{% url 'product-detail' product.id %}">
                 <div class="card-body text-center pb-1 text-dark">
-                    <img src="{% static 'store/src/disc/wireless.jpeg' %}" class="card-img-top" alt="Mobile & Gadgets">
+                    <img src="{{ product.productimage_set.all.0.image.url }}" class="card-img-top" alt="Mobile & Gadgets">
                     <p class="card-text small">{{ product.name }}</p>
                 </div>
                 <div class="px-2">
