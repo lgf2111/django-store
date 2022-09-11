@@ -22,7 +22,7 @@
     <a href="https://github.com/lgf2111/django-store"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/lgf2111/django-store">View Demo</a>
+    <a href="https://django-store.lgf2111.repl.co">View Demo</a>
     ·
     <a href="https://github.com/lgf2111/django-store/issues">Report Bug</a>
     ·
