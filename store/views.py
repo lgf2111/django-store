@@ -11,7 +11,7 @@ class ProductListView(ListView):
     model = Product
     template_name = 'store/home.html'
     context_object_name = 'products'
-    ordering = ['-date_created']
+    ordering = ['-created_at']
 
     def get_context_data(self, **kwargs):
         context =  super(ProductListView, self).get_context_data(**kwargs)
@@ -45,7 +45,7 @@ class SellerProductListView(ListView):
 
     def get_queryset(self):
         seller = get_object_or_404(User, username=self.kwargs.get('username'))
-        return Product.objects.filter(seller=seller).order_by('-date_created')
+        return Product.objects.filter(seller=seller).order_by('-created_at')
 
 
 class ProductDetailView(DetailView):

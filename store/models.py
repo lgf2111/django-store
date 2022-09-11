@@ -1,3 +1,4 @@
+from operator import mod
 from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
@@ -6,6 +7,7 @@ from PIL import Image
 
 
 class Product(models.Model):
+    seller = models.ForeignKey(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=100)
     brand = models.CharField(max_length=100, null=True)
     category = models.CharField(max_length=100, null=True)
@@ -13,8 +15,7 @@ class Product(models.Model):
     stock = models.IntegerField(default=0)
     sold = models.IntegerField(default=0)
     description = models.TextField()
-    date_created = models.DateTimeField(default=timezone.now)
-    seller = models.ForeignKey(User, on_delete=models.CASCADE)
+    created_at = models.DateTimeField(default=timezone.now)
 
     def get_absolute_url(self):
         return reverse('product-detail', kwargs={'pk': self.pk})
@@ -41,6 +42,16 @@ class Rating(models.Model):
     product = models.OneToOneField(Product, on_delete=models.CASCADE)
     rate = models.IntegerField()
     comment = models.TextField()
+    created_at = models.DateTimeField(default=timezone.now)
 
 
+class Cart(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    created_at = models.DateTimeField(default=timezone.now)
 
+
+class CartItem(models.Model):
+    cart = models.OneToOneField(Cart, on_delete=models.CASCADE)
+    product = models.OneToOneField(Product, on_delete=models.CASCADE)
+    quantity = models.IntegerField()
+    created_at = models.DateTimeField(default=timezone.now)
